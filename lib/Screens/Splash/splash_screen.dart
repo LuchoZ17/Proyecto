@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/Screens/Home/home_screen.dart';
+import 'package:my_project/utillities/Splash_Utilities/Colors/colors_const.dart';
+import 'package:my_project/utillities/Splash_Utilities/Icons/icons.dart';
+import 'package:my_project/utillities/Splash_Utilities/TextStyle/style_const.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -8,17 +12,21 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-@override
-void initState() {
-  Future.delayed(Duration(milliseconds: 1750),
-  ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen(),
-      ),
-    ),
-  );
-  super.initState();
-}
-
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(
+      Duration(milliseconds: 1750),
+      () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(),
+        ),
+      ),
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,21 +37,18 @@ class _SplashScreenState extends State<SplashScreen> {
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Color(0xFF73AEF5),
-                  Color(0xFF61A4F1),
-                  Color(0xFF478DE0),
-                  Color(0xFF398AE5),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  GradientColor1,
+                  GradientColor2,
+                  GradientColor3,
+                  GradientColor4,
                 ],
-                    stops: [
-                  0.1,
-                  0.4,
-                  0.7,
-                  0.9
-                ])),
+                stops: [0.1, 0.4, 0.7, 0.9],
+              ),
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -55,25 +60,23 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 70.0,
-                          child: Container(
-                            margin:
-                                EdgeInsets.only(right: 10.0), //Con esto acomodo
-                            child: FlutterLogo(
-                              size: 120,
-                            ),
-                          )),
+                        backgroundColor: Colors.white,
+                        radius: 70.0,
+                        child: Column(
+                          children: <Widget>[
+                            SvgPicture.asset(
+                              SplashScreenIcon,
+                              height: 128,
+                            )
+                          ],
+                        ),
+                      ),
                       Padding(
                           padding: EdgeInsets.only(
                               top: 10.0)), //Padding del texto respecto al icono
                       Text(
                         "EduSex",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                        style: SplashText,
                       ),
                     ],
                   ),
