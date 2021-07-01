@@ -48,7 +48,20 @@ flutter:
 
   assets:
     - assets/images/top_header.png
-    - assets/icons/body.svg
+    - assets/images/std.png
+    - assets/images/profile.png
+    - assets/images/login_bottom.png
+    - assets/images/main_bottom.png
+    - assets/images/main_top.png
+    - assets/images/signup_top.png
+    - assets/svgImages/body.svg
+    - assets/svgImages/brain.svg
+    - assets/svgImages/methods.svg
+    - assets/svgImages/ayuda.svg
+    - assets/svgImages/splash1.svg
+    - assets/svgImages/splash2.svg
+    - assets/svgImages/splash3.svg
+
 
 
   fonts:
