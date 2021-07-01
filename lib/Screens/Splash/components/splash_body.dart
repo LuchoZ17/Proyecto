@@ -36,12 +36,8 @@ class SplashBody extends StatelessWidget {
                 child: PageView.builder(
                   itemCount: splashData.length,
                   itemBuilder: (context, index) => SplashContent(
-                    image: 'assets/svgImages/splash1.svg',
+                    image: splashData[index]['image'],
                     text: '¡Bienvenido a EDUSEX!',
-                    image1: 'assets/svgImages/splash2.svg',
-                    text1: '¡La app #1 en educación sexual!',
-                    image2: 'assets/svgImages/splash3.svg',
-                    text2: 'Seremos tu guía por esta travesía, acompáñanos;)',
                   ),
                 ),
               ),
@@ -62,18 +58,10 @@ class SplashContent extends StatelessWidget {
     Key? key,
     required this.text,
     required this.image,
-    required this.text1,
-    required this.image1,
-    required this.text2,
-    required this.image2,
   }) : super(key: key);
 
-  final String text;
-  final String image;
-  final String text1;
-  final String image1;
-  final String text2;
-  final String image2;
+  final String? text;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +73,10 @@ class SplashContent extends StatelessWidget {
           style: SplashTextStyle,
         ),
         Text(
-          text,
+          text!,
         ),
         Spacer(flex: 2),
-        SvgPicture.asset(image)
+        SvgPicture.asset(image!)
       ],
     );
   }
