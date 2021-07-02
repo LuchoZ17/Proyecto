@@ -6,7 +6,7 @@ import 'package:my_project/screens/Methods/Contraceptive_Methods.dart';
 import 'package:my_project/screens/My%20body/my_body.dart';
 import 'package:my_project/screens/Personal%20Relations/personal_relations.dart';
 import 'package:my_project/utillities/Home%20Utilities/TextStyle/style_const.dart';
-import 'package:my_project/utillities/Home%20Utilities/Widgets/card_widget.dart';
+import 'package:my_project/screens/Home/components/build_card.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);

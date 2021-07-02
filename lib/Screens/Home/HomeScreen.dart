@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/main.dart';
 import 'package:my_project/screens/Account/account.dart';
-import 'package:my_project/screens/Home/home_body.dart';
+import 'package:my_project/screens/Home/components/home_body.dart';
 
 void main() => runApp(MyApp());
 
