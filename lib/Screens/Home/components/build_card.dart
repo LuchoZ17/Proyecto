@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_project/utillities/Home%20Utilities/TextStyle/style_const.dart';
+import 'package:my_project/utillities/Home%20Utilities/TextStyle/text_style_const.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget(

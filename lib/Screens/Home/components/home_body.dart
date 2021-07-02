@@ -5,7 +5,7 @@ import 'package:my_project/screens/Mental%20Construction/mental_construction.dar
 import 'package:my_project/screens/Methods/Contraceptive_Methods.dart';
 import 'package:my_project/screens/My%20body/my_body.dart';
 import 'package:my_project/screens/Personal%20Relations/personal_relations.dart';
-import 'package:my_project/utillities/Home%20Utilities/TextStyle/style_const.dart';
+import 'package:my_project/utillities/Home%20Utilities/TextStyle/text_style_const.dart';
 import 'package:my_project/screens/Home/components/build_card.dart';
 
 class HomeBody extends StatefulWidget {

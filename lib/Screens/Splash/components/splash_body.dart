@@ -11,11 +11,9 @@ class SplashBody extends StatefulWidget {
 }
 
 class _SplashBodyState extends State<SplashBody> {
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
-    int _currentPage = 0;
-    PageController _pageController = PageController();
-
     List<Map<String, String>> splashData = [
       {
         'text': '¡Bienvenido a EDUSEX!',
@@ -31,12 +29,6 @@ class _SplashBodyState extends State<SplashBody> {
       },
     ];
 
-    _onChanged(int index) {
-      setState(() {
-        _currentPage = index;
-      });
-    }
-
     return Background(
       assetImage: 'assets/images/main_top.png',
       assetImage1: 'assets/images/main_bottom.png',
@@ -48,8 +40,11 @@ class _SplashBodyState extends State<SplashBody> {
               Expanded(
                 flex: 3,
                 child: PageView.builder(
-                  controller: _pageController,
-                  onPageChanged: _onChanged,
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
                   itemCount: splashData.length,
                   itemBuilder: (context, int index) => SplashContent(
                     image: splashData[index]['image'],
@@ -57,29 +52,17 @@ class _SplashBodyState extends State<SplashBody> {
                   ),
                 ),
               ),
+              SizedBox(height: 25),
               Expanded(
                 flex: 2,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children:
-                          List<Widget>.generate(splashData.length, (int index) {
-                        return AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
-                          height: 10,
-                          width: (index == _currentPage) ? 30 : 10,
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 30),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: (index == _currentPage)
-                                ? kPrimaryColor
-                                : kPrimaryLightColor,
-                          ),
-                        );
-                      }),
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index: index),
+                      ),
                     ),
                   ],
                 ),
@@ -90,4 +73,26 @@ class _SplashBodyState extends State<SplashBody> {
       ),
     );
   }
+
+  AnimatedContainer buildDot({required int index}) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 200),
+      margin: EdgeInsets.only(right: 5),
+      height: 7,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+          color: currentPage == index
+              ? kPrimaryColor
+              : kPrimaryLightColor.withOpacity(1),
+          borderRadius: BorderRadius.circular(3)),
+    );
+  }
 }
+
+final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    primary: kPrimaryLightColor,
+    minimumSize: Size(88, 44),
+    padding: EdgeInsets.symmetric(horizontal: 16.0),
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(3))),
+    backgroundColor: kPrimaryLightColor);
